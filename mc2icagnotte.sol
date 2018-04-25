@@ -16,6 +16,7 @@ contract mc2iCagnotte {
     }
     
     struct Contribution {
+        uint128 id;
         uint CagnotteID;
         address sender;
         uint montant;
@@ -24,10 +25,11 @@ contract mc2iCagnotte {
     }
     
     event CreationCagnotte(uint ID, string nom, uint montant, uint nbreContrib, bool statut);
-    event ContributionCagnotte(uint IDCagnotte, uint montant, string nom, string mot);
+    event ContributionCagnotte (uint128 ContribId, uint IDCagnotte, uint montant, string nom, string mot);
     
-    //On met le mapping en public les fonctions set/get
+    //Get des cagnottes par ID
     mapping(uint => Cagnotte) public getCagnotteByID;
+	mapping(uint => Contribution) public getContributionByID;
     
     
     Cagnotte[] cagnottes;
@@ -58,8 +60,12 @@ contract mc2iCagnotte {
         //On transfert le montant de la cagnotte à son propriétaire
 		msg.sender.transfer(getCagnotteByID[_id].montant);
 		//On ferme la cagnotte
-        getCagnotteByID[_id].statut = false;
-        
+		for (uint i = 0; i < cagnottes.length ; i++) {
+			if (cagnottes[i].id == _id) {
+				cagnottes[i].statut = false;
+				getCagnotteByID[_id].statut = false;
+			}
+		}
     }
 
     /// @notice Contribue à une cagnotte, en laissant un nom et un mot avec le montant
@@ -70,21 +76,43 @@ contract mc2iCagnotte {
     function ContribuerCagnotte(uint _id, string _nom, string _mot) payable public returns (bool success) {
         require (getCagnotteByID[_id].statut == true, "La cagnotte est fermée, vous ne pouvez plus y contribuer");
         require (msg.value > 0, "Vous ne pouvez pas contribuer à hauteur de 0 mc2icoins");
-        Contribution memory _contribution = Contribution(_id, msg.sender, msg.value, _nom, _mot);
+        
+        //ID de la contrib = Hachage de l'adresse de l'expéditeur, du numéro de la cagnotte, du nom et mot laissé
+        uint128 ContribId = uint128(keccak256(msg.sender, idCagnotte, _nom, _mot));
+        
+        //On l'insère dans le tableau des contributions
+        Contribution memory _contribution = Contribution(ContribId, _id, msg.sender, msg.value, _nom, _mot);
         contributions.push(_contribution);
-        getCagnotteByID[_id].montant += msg.value;
-        getCagnotteByID[_id].nbreContributions += 1;
-        emit ContributionCagnotte(_id, msg.value, _nom, _mot);
-        return (true);
+        
+        //On l'insère dans le mapping
+        getContributionByID[ContribId] = _contribution;
+        
+		for (uint i = 0; i < cagnottes.length ; i++) {
+			if (cagnottes[i].id == _id) {
+				//On met à jour les montants / nombre de contributions dans le tableau / mapping				
+				cagnottes[i].montant += msg.value;
+				cagnottes[i].nbreContributions += 1;
+		        getCagnotteByID[_id].montant += msg.value;
+				getCagnotteByID[_id].nbreContributions += 1;
+				
+				//On émet l'event
+				emit ContributionCagnotte(ContribId, _id, msg.value, _nom, _mot);
+				return (true);
+			}
+		}
+		
+		return(false);
     }
 
     /// @notice Permet d'obtenir chaque contribution relatives à une cagnotte
     /// @dev Ne retourne pour l'instant que des tableaux d'adresses et d'int, une solution pour les noms et mots est en cours d'investigation
     /// @param _id L'ID de la cagnotte
+    /// @return uint128[] Tableau des ID des contributions
     /// @return address[] Tableau des adresses des contributeurs
     /// @return uint[] Tableau des montants des contributions
-    function getContributionsByCagnotte(uint _id) public view returns (address[], uint[]) {
-        //On réserve deux tableaux et on fixe leur taille avec le nombre de contributions de la cagnotte
+    function getContributionsByCagnotte(uint _id) public view returns (uint128[], address[], uint[]) {
+        //On réserve trois tableaux et on fixe leur taille avec le nombre de contributions de la cagnotte
+		uint128[] memory _idContribs = new uint128[](getCagnotteByID[_id].nbreContributions);
 		address[] memory _contribs = new address[](getCagnotteByID[_id].nbreContributions);
         uint[] memory _montants = new uint[](getCagnotteByID[_id].nbreContributions);
         uint counter = 0;
@@ -92,13 +120,14 @@ contract mc2iCagnotte {
         for (uint i = 0 ; i < contributions.length ; i++) {
 			//Dès qu'on en trouve une
             if (contributions[i].CagnotteID == _id) {
-				//On charge ses paramètres dans les deux tableaux temporaires
+				//On charge ses paramètres dans les trois tableaux temporaires
                 Contribution storage contrib = contributions[i];
+                _idContribs[counter] = contrib.id;
                 _contribs[counter] = contrib.sender;
                 _montants[counter] = contrib.montant;
                 counter++;
             }
         }
-        return(_contribs, _montants);
+        return(_idContribs, _contribs, _montants);
     }
 }
