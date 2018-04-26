@@ -27,10 +27,14 @@ contract mc2iCagnotte {
     event CreationCagnotte(uint ID, string nom, uint montant, uint nbreContrib, bool statut);
     event ContributionCagnotte (uint128 ContribId, uint IDCagnotte, uint montant, string nom, string mot);
     
-    //Get des cagnottes par ID
+    //Get des cagnottes par leur ID
     mapping(uint => Cagnotte) public getCagnotteByID;
+    //Get des contributions par leur ID
 	mapping(uint => Contribution) public getContributionByID;
-    
+    //Get des ID cagnottes par utilisateur
+    mapping(address => uint[]) public getIDCagnotteByOwner;
+	//Get des ID contributions par utilisateur
+    mapping(address => uint[]) public getIDContribByOwner;
     
     Cagnotte[] cagnottes;
     Contribution[] contributions;
@@ -46,6 +50,7 @@ contract mc2iCagnotte {
         cagnottes.push(_cagnotte);
         //On pousse la cagnotte dans le mapping
         getCagnotteByID[idCagnotte] = _cagnotte;
+        getIDCagnotteByOwner[msg.sender].push(idCagnotte);
         //On envoie l'event pour le front
         emit CreationCagnotte(idCagnotte, _nom, 0, 0, true);
         //On incrémente la variable pour la cagnotte suivante
@@ -86,6 +91,7 @@ contract mc2iCagnotte {
         
         //On l'insère dans le mapping
         getContributionByID[ContribId] = _contribution;
+		getIDContribByOwner[msg.sender].push(_contribution.id);
         
 		for (uint i = 0; i < cagnottes.length ; i++) {
 			if (cagnottes[i].id == _id) {
