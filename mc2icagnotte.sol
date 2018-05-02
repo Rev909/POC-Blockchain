@@ -60,15 +60,16 @@ contract mc2iCagnotte {
     /// @notice Retire le montant d'une cagnotte dont on est le propriétaire, entraînant sa fermeture
     /// @param _id L'ID de la cagnotte
     function RetirerCagnotte(uint _id) public {
+        Cagnotte storage c = getCagnotteByID[_id];
         //La personne qui doit retirer la cagnotte doit être son propriétaire
-        require (getCagnotteByID[_id].owner == msg.sender, "Vous n'êtes pas le propriétaire de la cagnotte");
+        require (c.owner == msg.sender, "Vous n'êtes pas le propriétaire de la cagnotte");
         //On transfert le montant de la cagnotte à son propriétaire
-		msg.sender.transfer(getCagnotteByID[_id].montant);
+		msg.sender.transfer(c.montant);
 		//On ferme la cagnotte
 		for (uint i = 0; i < cagnottes.length ; i++) {
 			if (cagnottes[i].id == _id) {
 				cagnottes[i].statut = false;
-				getCagnotteByID[_id].statut = false;
+				c.statut = false;
 			}
 		}
     }
@@ -79,7 +80,8 @@ contract mc2iCagnotte {
     /// @param _mot Le mot laissé par le contributeur
     /// @return bool Succès de la contribution
     function ContribuerCagnotte(uint _id, string _nom, string _mot) payable public returns (bool success) {
-        require (getCagnotteByID[_id].statut == true, "La cagnotte est fermée, vous ne pouvez plus y contribuer");
+        Cagnotte storage c = getCagnotteByID[_id];
+        require (c.statut == true, "La cagnotte est fermée, vous ne pouvez plus y contribuer");
         require (msg.value > 0, "Vous ne pouvez pas contribuer à hauteur de 0 mc2icoins");
         
         //ID de la contrib = Hachage de l'adresse de l'expéditeur, du numéro de la cagnotte, du nom et mot laissé
@@ -98,16 +100,14 @@ contract mc2iCagnotte {
 				//On met à jour les montants / nombre de contributions dans le tableau / mapping				
 				cagnottes[i].montant += msg.value;
 				cagnottes[i].nbreContributions += 1;
-		        getCagnotteByID[_id].montant += msg.value;
-				getCagnotteByID[_id].nbreContributions += 1;
+		        c.montant += msg.value;
+				c.nbreContributions += 1;
 				
 				//On émet l'event
 				emit ContributionCagnotte(ContribId, _id, msg.value, _nom, _mot);
 				return (true);
 			}
 		}
-		
-		return(false);
     }
 
     /// @notice Permet d'obtenir chaque contribution relatives à une cagnotte
