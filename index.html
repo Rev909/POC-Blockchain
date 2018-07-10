@@ -1,88 +1,117 @@
-
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
 
-		<title>Accueil | mc²iCagnotte</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<!-- Bootstrap core CSS -->
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="ressources/fontawesome-free-5.1.0-web/css/all.css">
+    <title>Accueil | mc²iCagnotte</title>
 
-		<!-- Custom styles for this template -->
-		<link href="css/index.css" rel="stylesheet">
-	</head>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="ressources/fontawesome-free-5.1.0-web/css/all.css">
 
-	<body>
-		<nav class="navbar shadow-sm navbar-expand-md navbar-light bg-light mb-4">
-			<a class="navbar-brand h1 mt-1" href="index.html">mc²iCagnotte</a>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="nav nav-pills mr-auto">
-				  <li class="nav-item">
-					<a class="nav-link active" href="createcagnotte.html">Créer une cagnotte</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="#">Cagnottes en cours</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="mycagnotte.html">Mes cagnottes</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="mycontributions.html">Mes contributions</a>
-				  </li>
-				</ul>
-				<i class="fas fa-user-circle fa-2x" style="color: Dodgerblue;"></i>
-				<a href="profil.html"><button type="button" class="btn btn-outline-primary ml-3">Mon profil</button></a>
-			</div>
-		</nav>
+    <!-- Custom styles for this template -->
+    <link href="css/index.css" rel="stylesheet">
+</head>
 
-		<main role="main" class="container">
-			<div class="jumbotron">
-				<h1>Bienvenue dans le pot commun mc²i Groupe</h1>
-				<p class="lead">Basée sur les technologies innovantes de la blockchain, le pot commun mc²i Groupe vous permet de cotiser à des cagnottes de manière sécurisée.</p>
-				<h2 class="font-italic">Comment ça marche ?</h2>
-				<div class="card-deck mt-4">
-					<div class="card">
-						<i class="fas fa-flag-checkered fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
-						<div class="card-body">
-							<h5 class="card-title">Créer une cagnotte</h5>
-							<p class="card-text">Commencez dès à présent à créér une cagnotte pour une occasion particulière (anniversaire, départ,...) grâce au formulaire accessible via le bouton du menu ci-dessus.</p>
-						</div>
-					</div>
-					<div class="card">
-						<i class="fas fa-coins fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
-						<div class="card-body">
-							<h5 class="card-title">Cotiser à une cagnotte</h5>
-							<p class="card-text">De la même façon que sur Leetchi, si vous souhaitez participer à une cagnotte, accédez-y via l'URL pour la consulter et envoyer des mc²icoins.</p>
-						</div>
-					</div>
-					<div class="card">
-						<i class="fas fa-history fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
-						<div class="card-body">
-							<h5 class="card-title">Consulter son historique</h5>
-							<p class="card-text">Si vous êtes à l'origine de cagnottes ou de contributions à des cagnottes, vous pouvez les consulter via les liens dans le menu ci-dessus.</p>
-						</div>
-					</div>
-					<div class="card">
-						<i class="fas fa-users fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
-						<div class="card-body">
-							<h5 class="card-title">Consulter son profil</h5>
-							<p class="card-text">Votre profil droit ou gauche ne vous convient pas ? On ne peut rien y faire malheureusement, par contre consulter juste vos informations c'est possible.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
+<body>
+    <nav class="navbar shadow-sm navbar-expand-md navbar-light bg-light mb-4">
+        <a class="navbar-brand h1 mt-1" href="index.html">mc²iCagnotte</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav nav-pills mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="createcagnotte.html">Créer une cagnotte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#exampleModal" data-toggle="modal">Accéder à une cagnotte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mycagnotte.html">Mes cagnottes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mycontributions.html">Mes contributions</a>
+                </li>
+            </ul>
+            <i class="fas fa-user-circle fa-2x" style="color: Dodgerblue;"></i>
+            <a href="profil.html"><button type="button" class="btn btn-outline-primary ml-3">Mon profil</button></a>
+        </div>
+    </nav>
 
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
-	</body>
+    <main role="main" class="container">
+        <div class="jumbotron">
+            <h1>Bienvenue dans le pot commun mc²i Groupe</h1>
+            <p class="lead">Basé sur les technologies innovantes de la blockchain, le pot commun mc²i Groupe vous permet de cotiser à des cagnottes de manière sécurisée.</p>
+            <h2 class="font-italic">Comment ça marche ?</h2>
+            <div class="card-deck mt-4">
+                <div class="card">
+                    <i class="fas fa-flag-checkered fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Créer une cagnotte</h5>
+                        <p class="card-text">Commencez dès à présent à créér une cagnotte pour une occasion particulière (anniversaire, départ,...) grâce au formulaire accessible via le bouton du menu ci-dessus.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-coins fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Cotiser à une cagnotte</h5>
+                        <p class="card-text">De la même façon que sur Leetchi, si vous souhaitez participer à une cagnotte, accédez-y via l'URL pour la consulter et envoyer des mc²icoins.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-history fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Consulter son historique</h5>
+                        <p class="card-text">Si vous êtes à l'origine de cagnottes ou de contributions à des cagnottes, vous pouvez les consulter via les liens dans le menu ci-dessus.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users fa-3x mx-auto pt-3" style="color: Dodgerblue;"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Consulter son profil</h5>
+                        <p class="card-text">Votre profil droit ou gauche ne vous convient pas ? On ne peut rien y faire malheureusement, par contre consulter juste vos informations c'est possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Accès direct à une cagnotte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+							<label for="id-cagnotte" class="col-form-label">ID de la cagnotte : </label>
+							<input type="text" class="form-control" id="id-cagnotte" placeholder="ID">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Valider</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+			================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
 </html>

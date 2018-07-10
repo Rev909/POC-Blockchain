@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,88 +16,124 @@
 		<!-- Custom styles for this template -->
 		<link href="css/index.css" rel="stylesheet">
 	</head>
-	
+
 	<body>
 		<nav class="navbar shadow-sm navbar-expand-md navbar-light bg-light mb-4">
 			<a class="navbar-brand h1 mt-1" href="index.html">mc²iCagnotte</a>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav nav-pills mr-auto">
-				  <li class="nav-item">
-					<a class="nav-link active" href="createcagnotte.html">Créer une cagnotte</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="#">Cagnottes en cours</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="mycagnotte.html">Mes cagnottes</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="mycontributions.html">Mes contributions</a>
-				  </li>
+					<li class="nav-item">
+						<a class="nav-link active" href="createcagnotte.html">Créer une cagnotte</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#exampleModal" data-toggle="modal">Accéder à une cagnotte</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="mycagnotte.html">Mes cagnottes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="mycontributions.html">Mes contributions</a>
+					</li>
 				</ul>
 				<i class="fas fa-user-circle fa-2x" style="color: Dodgerblue;"></i>
 				<a href="profil.html"><button type="button" class="btn btn-outline-primary ml-3">Mon profil</button></a>
 			</div>
 		</nav>
-	
+
 		<main role="main">
 			<div class="container">
 				<div class="row">
 					<i class="fas fa-user-circle fa-2x pt-1"></i>
 					<h2 class="pl-3">Profil utilisateur</h2>
 				</div>
-				
+
 				<div class="column col-10 pt-4 ml-5">
 					<form class="border rounded">
 						<fieldset disabled>
 							<div class="form-group row pt-3 pl-3">
-								  <label for="colFormLabelSm" class="col-sm-2 col-form-label">Adresse e-mail</label>
-								  <div class="input-group col-sm-8">
+								<label for="colFormLabelSm" class="col-sm-2 col-form-label">Adresse e-mail</label>
+								<div class="input-group col-sm-8">
 									<div class="input-group-prepend">
 										<div class="input-group-text">@</div>
 									</div>
 									<input type="text" class="form-control" id="inlineFormInputGroupMail" placeholder="$adresse_mail_consultant">
-								  </div>
+								</div>
 							</div>
 							<div class="form-group row pt-3 pl-3">
-								  <label for="colFormLabelSm" class="col-sm-2 col-form-label">Prénom</label>
-								  <div class="input-group col-sm-8">
+								<label for="colFormLabelSm" class="col-sm-2 col-form-label">Prénom</label>
+								<div class="input-group col-sm-8">
 									<input type="text" class="form-control" id="inlineFormInputGroupPrenom" placeholder="$prénom">
-								  </div>
+								</div>
 							</div>
 							<div class="form-group row pt-3 pl-3">
-								  <label for="colFormLabelSm" class="col-sm-2 col-form-label">Nom</label>
-								  <div class="input-group col-sm-8">
+								<label for="colFormLabelSm" class="col-sm-2 col-form-label">Nom</label>
+								<div class="input-group col-sm-8">
 									<input type="text" class="form-control" id="inlineFormInputGroupName" placeholder="$nom">
-								  </div>
+								</div>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 
 			</div>
-			
+
 			<div class="container">
 				<div class="row mt-4">
 					<i class="fas fa-wallet fa-2x pt-1"></i>
-					<h2 class="pl-3">Montant dans votre portemonnaie</h2>
+					<h2 class="pl-3">Montant de votre portemonnaie</h2>
 				</div>
 				<div class="column col-10 pt-4 ml-5">
 					<form class="border rounded">
 						<fieldset disabled>
 							<div class="form-group row pt-3 pl-3">
-								  <label for="montant" class="col-sm-2 col-form-label">Montant</label>
-								  <div class="input-group col-sm-8">
-									  <input type="text" class="form-control" placeholder="$montant_wallet" aria-label="Montant du portemonnaie">
-									  <div class="input-group-append">
+								<label for="montant" class="col-sm-2 col-form-label">Montant</label>
+								<div class="input-group col-sm-8">
+									<input type="text" class="form-control" placeholder="$montant_wallet" aria-label="Montant du portemonnaie">
+									<div class="input-group-append">
 										<span class="input-group-text" id="basic-addon2">$</span>
-									  </div>
-								  </div>
+									</div>
+								</div>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 			</div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Accès direct à une cagnotte</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="id-cagnotte" class="col-form-label">ID de la cagnotte : </label>
+									<input type="text" class="form-control" id="id-cagnotte" placeholder="ID">
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">Valider</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Bootstrap core JavaScript
+							================================================== -->
+			<!-- Placed at the end of the document so the pages load faster -->
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+			<script>
+				window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+			</script>
+			<script src="bootstrap/js/bootstrap.min.js"></script>
 		</main>
 	</body>
+
 </html>

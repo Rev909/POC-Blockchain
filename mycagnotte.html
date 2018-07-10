@@ -1,24 +1,202 @@
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
 
-		<title>Mes cagnottes | mc²iCagnotte</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<!-- Bootstrap core CSS -->
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="ressources/fontawesome-free-5.1.0-web/css/all.css">
+    <title>Mes cagnottes | mc²iCagnotte</title>
 
-		<!-- Custom styles for this template -->
-		<link href="css/index.css" rel="stylesheet">
-	</head>
-	
-	<body>
-	
-	</body>
-	
-	
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="ressources/fontawesome-free-5.1.0-web/css/all.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar shadow-sm navbar-expand-md navbar-light bg-light mb-4">
+        <a class="navbar-brand h1 mt-1" href="index.html">mc²iCagnotte</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav nav-pills mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="createcagnotte.html">Créer une cagnotte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#exampleModal" data-toggle="modal">Accéder à une cagnotte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mycagnotte.html">Mes cagnottes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mycontributions.html">Mes contributions</a>
+                </li>
+            </ul>
+            <i class="fas fa-user-circle fa-2x" style="color: Dodgerblue;"></i>
+            <a href="profil.html">
+                <button type="button" class="btn btn-outline-primary ml-3">Mon profil</button>
+            </a>
+        </div>
+    </nav>
+
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                <i class="fas fa-gift fa-2x pt-1"></i>
+                <h2 class="pl-3">Mes cagnottes</h2>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="column col-9">
+                    <div class="card mt-4 shadow-sm">
+                        <div class="card-header">
+                            <h5 class="card-title">Pot de départ de Bidule</h5>
+                            <p class="card-text"><small class="text-muted">Cagnotte $id_cagnotte</small></p>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-row flex-wrap justify-content-center">
+                                <div class="px-4">
+                                    <div class="row">
+                                        <i class="fas fa-money-bill fa-2x"></i>
+                                        <h4 class="ml-2 mr-4">140m²c</h4>
+                                    </div>
+                                </div>
+                                <div class="px-4">
+                                    <div class="row">
+                                        <i class="fas fa-user-alt fa-2x"></i>
+                                        <h4 class="ml-2 mr-4">35</h4>
+                                    </div>
+                                </div>
+                                <div class="px-4">
+                                    <div class="row">
+                                        <h4 class="ml-2 mr-4">Ouverte</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    <a href="#" class="btn btn-primary btn-sm">Aller à la cagnotte</a>
+                                </div>
+                                <small class="text-muted align-self-center mr-3">Ouverte le 15-07-2018</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4 shadow-sm">
+                        <div class="card-header">
+                            <h5 class="card-title">Pot de remerciement d'Alexis</h5>
+                            <p class="card-text"><small class="text-muted">Cagnotte $id_cagnotte</small></p>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-row flex-wrap justify-content-center">
+                                <div class="px-4">
+                                    <div class="row">
+                                        <i class="fas fa-money-bill fa-2x"></i>
+                                        <h4 class="ml-2 mr-4">0m²c</h4>
+                                    </div>
+                                </div>
+                                <div class="px-4">
+                                    <div class="row">
+                                        <i class="fas fa-user-alt fa-2x"></i>
+                                        <h4 class="ml-2 mr-4">0</h4>
+                                    </div>
+                                </div>
+                                <div class="px-4">
+                                    <div class="row">
+                                        <h4 class="ml-2 mr-4">Fermée</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row justify-content-between">
+                                <a href="#" class="btn btn-primary ml-3 btn-sm">Aller à la cagnotte</a>
+                                <small class="text-muted align-self-center mr-3">Ouverte le 07-06-2016</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-4 shadow-sm">
+                        <div class="card-header">
+                            <h5 class="card-title">Pot de promotion DUO de Mathias</h5>
+                            <p class="card-text"><small class="text-muted">Cagnotte $id_cagnotte</small></p>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-row flex-wrap justify-content-center">
+                                <div class="px-4">
+                                    <div class="row">
+                                        <i class="fas fa-money-bill fa-2x"></i>
+                                        <h4 class="ml-2 mr-4">100000m²c</h4>
+                                    </div>
+                                </div>
+                                <div class="px-4">
+                                    <div class="row">
+                                        <i class="fas fa-user-alt fa-2x"></i>
+                                        <h4 class="ml-2 mr-4">8370127</h4>
+                                    </div>
+                                </div>
+                                <div class="px-4">
+                                    <div class="row">
+                                        <h4 class="ml-2 mr-4">Ouverte</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row justify-content-between">
+                                <div class="col">
+                                    <a href="#" class="btn btn-primary btn-sm">Aller à la cagnotte</a>
+                                </div>
+                                <small class="text-muted align-self-center mr-3">Ouverte le 08-01-2018</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Accès direct à une cagnotte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+							<label for="id-cagnotte" class="col-form-label">ID de la cagnotte : </label>
+							<input type="text" class="form-control" id="id-cagnotte" placeholder="ID">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Valider</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+		================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
 </html>

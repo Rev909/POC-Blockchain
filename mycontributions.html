@@ -1,24 +1,123 @@
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-		<title>Mes contributions | mc²iCagnotte</title>
+	<title>Mes contributions | mc²iCagnotte</title>
 
-		<!-- Bootstrap core CSS -->
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="ressources/fontawesome-free-5.1.0-web/css/all.css">
+	<!-- Bootstrap core CSS -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="ressources/fontawesome-free-5.1.0-web/css/all.css">
 
-		<!-- Custom styles for this template -->
-		<link href="css/index.css" rel="stylesheet">
-	</head>
+	<!-- Custom styles for this template -->
+	<link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav class="navbar shadow-sm navbar-expand-md navbar-light bg-light mb-4">
+		<a class="navbar-brand h1 mt-1" href="index.html">mc²iCagnotte</a>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="nav nav-pills mr-auto">
+				<li class="nav-item">
+					<a class="nav-link active" href="createcagnotte.html">Créer une cagnotte</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#exampleModal" data-toggle="modal">Accéder à une cagnotte</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="mycagnotte.html">Mes cagnottes</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="mycontributions.html">Mes contributions</a>
+				</li>
+			</ul>
+			<i class="fas fa-user-circle fa-2x" style="color: Dodgerblue;"></i>
+			<a href="profil.html"><button type="button" class="btn btn-outline-primary ml-3">Mon profil</button></a>
+		</div>
+	</nav>
 	
-	<body>
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                <i class="fas fa-piggy-bank fa-2x pt-1"></i>
+                <h2 class="pl-3">Mes contributions</h2>
+            </div>
+			
+			<div class="column col-9">
+				<div class="card mt-4 shadow-sm">
+					<h5 class="card-header">Pot de départ de Bidule</h5>
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-2 border rounded p-3 ml-3 mb-2 bg-primary text-white">
+								<h3 class="text-center">5m²c</h3>
+							</div>
+							<div class="col ml-3">
+								<h6>Mot :</h6>
+								<p class="font-italic">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in dui enim. Sed finibus eget lacus pretium feugiat. Curabitur consequat massa eget tortor consectetur egestas.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="card mt-4 shadow-sm">
+					<h5 class="card-header">Pot de promotion DUO de Mathias</h5>
+					<div class="card-body">
+						<div class="row align-items-center">
+							<div class="col-2 border rounded p-3 ml-3 mb-2 bg-primary text-white">
+								<h3 class="text-center">10m²c</h3>
+							</div>
+							<div class="col ml-3">
+								<h6>Mot :</h6>
+								<p class="font-italic">Son apparence banale cache un homme compétent, loyal et intègre. Un grand homme, s'il en fut !</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+        </div>
+	</main>
 	
-	</body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Accès direct à une cagnotte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+							<label for="id-cagnotte" class="col-form-label">ID de la cagnotte : </label>
+							<input type="text" class="form-control" id="id-cagnotte" placeholder="ID">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Valider</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+		================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 	
-	
+</body>
+
+
 </html>
